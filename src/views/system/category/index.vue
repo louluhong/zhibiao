@@ -53,6 +53,7 @@
         >新增</el-button>
       </el-col>
       <el-col :span="1.5">
+          <!-- v-hasPermi="['system:category:edit']" -->
         <el-button
           type="success"
           plain
@@ -60,10 +61,10 @@
           size="mini"
           :disabled="single"
           @click="handleUpdate"
-          v-hasPermi="['system:category:edit']"
         >修改</el-button>
       </el-col>
       <el-col :span="1.5">
+          <!-- v-hasPermi="['system:category:remove']" -->
         <el-button
           type="danger"
           plain
@@ -71,17 +72,16 @@
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
-          v-hasPermi="['system:category:remove']"
         >删除</el-button>
       </el-col>
       <el-col :span="1.5">
+          <!-- v-hasPermi="['system:category:export']" -->
         <el-button
           type="warning"
           plain
           icon="Download"
           size="mini"
           @click="handleExport"
-          v-hasPermi="['system:category:export']"
         >导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
@@ -167,8 +167,8 @@
         </el-form-item>
         <el-form-item label="是否是区间" prop="unit" v-if='form.grade==2'>
           <el-radio-group v-model="form.isSection">
-            <el-radio label="1">是</el-radio>
-            <el-radio label="0">否</el-radio>
+            <el-radio :label="1">是</el-radio>
+            <el-radio :label="0">否</el-radio>
           </el-radio-group>
         </el-form-item>
       </el-form>
