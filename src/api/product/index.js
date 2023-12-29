@@ -1,8 +1,8 @@
 import request from '@/utils/request'
 // 查询参数列表
-export function getCityScoreList(year) {
+export function getCityScoreList(year,typeName) {
   return request({
-    url: '/target/product/getCityScoreList?year='+ year,
+    url: '/target/product/getCityScoreList?year='+ year+'&typeName='+typeName,
     method: 'get',
   })
 }

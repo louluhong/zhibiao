@@ -41,6 +41,7 @@
       </el-form-item>
     </el-form>
 
+    <!-- v-hasPermi="['system:category:add']" -->
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-button
@@ -49,7 +50,6 @@
           icon="Plus"
           size="mini"
           @click="handleAdd"
-          v-hasPermi="['system:category:add']"
         >新增</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -290,7 +290,7 @@ const submitForm = () =>{
   proxy.$refs["categoryRef"].validate(valid => {
     if (valid) {
       if(form.value.grade!=2) delete form.value.isSection
-      // console.log(form.value,'+++=====')
+      console.log(form.value,'+++=====')
       // return
       if (form.value.id != null) {
         updateCategory(form.value).then(response => {

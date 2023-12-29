@@ -117,11 +117,12 @@
       :data="targetList"
       @selection-change="handleSelectionChange"
       :span-method="objectSpanMethod"
+      :default-sort="{ prop: 'typeName', order: 'descending' }"
     >
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="指标类型" align="center" prop="typeName"></el-table-column>
       <el-table-column label="一级指标" align="center" prop="ancestorName" ></el-table-column>
-      <el-table-column label="二级指标" align="center" prop="parentName" />
+      <el-table-column label="二级指标" sortable align="center" prop="parentName" />
       <el-table-column label="三级指标" align="center" prop="name" />
       <el-table-column label="权重" align="center" prop="weightScore" />
       <el-table-column
@@ -348,11 +349,11 @@ const complete = () => {
 }
 /** 删除按钮操作 */
 const handleDelete = (row) =>{
-	const ids = row.id || ids.value;
+	const newIds = row?.id || ids.value;
 	proxy.$modal
-		.confirm('是否确认删除指标权重编号为"' + ids + '"的数据项？')
+		.confirm('是否确认删除指标权重编号为"' + newIds + '"的数据项？')
 		.then(function () {
-			return delTarget(ids);
+			return delTarget(newIds);
 		})
 		.then(() => {
 			getList();

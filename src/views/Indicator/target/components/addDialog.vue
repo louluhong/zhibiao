@@ -40,7 +40,7 @@
 				</el-form-item>
 				<el-form-item label="权重">
 					<div>
-						<el-input-number v-model="listItem.weightScore" :min="1" :max="10" />
+						<el-input-number v-model="listItem.weightScore" :min="-5" :max="10" />
 						<!-- <el-input v-model="listItem.weightScore" placeholder="请输入"/> -->
 					</div>
 				</el-form-item>

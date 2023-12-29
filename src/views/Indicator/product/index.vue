@@ -1,26 +1,32 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="名称" prop="productName">
-        <el-input
-          v-model="queryParams.productName"
-          placeholder="请输入名称"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="年份" prop="year">
-        <el-date-picker
-          v-model="queryParams.year"
-          type="year"
-          placeholder="请选择"
-          value-format="YYYY"
-        />
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" icon="Search" size="mini" @click="handleQuery">搜索</el-button>
-        <el-button icon="Refresh" size="mini" @click="resetQuery">重置</el-button>
-      </el-form-item>
+    <el-form :row="24" :model="queryParams" ref="queryForm" size="small" v-show="showSearch" label-width="68px">
+      <el-col :span="6">
+        <el-form-item label="名称" prop="productName">
+          <el-input
+            v-model="queryParams.productName"
+            placeholder="请输入名称"
+            clearable
+            @keyup.native="handleQuery"
+          />
+        </el-form-item>
+      </el-col>
+      <el-col :span="12">
+        <el-form-item label="年份" prop="year">
+          <el-date-picker
+            v-model="queryParams.year"
+            type="year"
+            placeholder="请选择"
+            value-format="YYYY"
+          />
+        </el-form-item>
+      </el-col>
+      <!-- <el-col :span="6"> -->
+        <el-form-item>
+          <el-button type="primary" icon="Search" size="mini" @click="handleQuery">搜索</el-button>
+          <el-button icon="Refresh" size="mini" @click="resetQuery">重置</el-button>
+        </el-form-item>
+      <!-- </el-col> -->
     </el-form>
 
     <el-row :gutter="10" class="mb8">      
