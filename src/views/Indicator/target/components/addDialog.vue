@@ -3,7 +3,7 @@
 		<el-form ref="formRef" :model="form" :rules="rules" label-width="70px" :inline="true">
 			<div v-for='listItem,index in list' :key='index'>
 				<el-form-item label="标题">
-					<el-select v-model="listItem.type" class="m-2" placeholder="请选择" @change='typeChange($event,index)'>
+					<el-select filterable v-model="listItem.type" class="m-2" placeholder="请选择" @change='typeChange($event,index)'>
 						<el-option
 							v-for="item in sys_hc_type"
 							:key="item.value"
@@ -13,7 +13,7 @@
 					</el-select>
 				</el-form-item>
 				<el-form-item label="一级指标">
-					<el-select v-model="listItem.ancestorId" class="m-2" placeholder="请选择" @change='ancestorChange($event,index)'>
+					<el-select filterable v-model="listItem.ancestorId" class="m-2" placeholder="请选择" @change='ancestorChange($event,index)'>
 						<el-option
 							v-for="item in oneTarget"
 							:key="item.id"
@@ -23,7 +23,7 @@
 					</el-select>
 				</el-form-item>
 				<el-form-item label="二级指标">
-					<el-select v-model="listItem.parentId" class="m-2" placeholder="请选择" @change='parentIdChange($event,index)'>
+					<el-select filterable v-model="listItem.parentId" class="m-2" placeholder="请选择" @change='parentIdChange($event,index)'>
 						<el-option
 							v-for="item in twoTarget"
 							:key="item.id"
